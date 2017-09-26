@@ -1,0 +1,42 @@
+<ion-modal-view>
+  <ion-header-bar>
+    <button class="button button-clear button-primary" ng-click="closeModalPack()" style="color: black"><i class="icon ion-android-arrow-back"></i></button>    
+    <h1 class="title">Pack Seleccionado</h1>
+  </ion-header-bar>
+  <ion-content class="padding modal-window">
+    <div class="list" ng-repeat="pack in partylocal.local.packs | filter : {'id':bureanoParty.packid}" >
+      <a class="item item-thumbnail-left">
+        <img ng-src="{{pack.urlimagen}}">
+        <h2>{{pack.nombre}}</h2>
+        <p>{{pack.descripcion}}</p>
+        <p>{{pack.precio}} €</p>
+      </a>      
+      <label class="item item-input item-select">
+        <div class="input-label">
+          Cantidad 
+        </div>
+        <select ng-init="bureanoParty.cantidad = lista[0]" 
+                ng-model="bureanoParty.cantidad" 
+                ng-options="numero for numero in lista">
+        </select>
+      </label>
+      <label class="item item-input item-select">
+        <div class="input-label">
+          Invitados
+        </div>
+        <select ng-init="bureanoParty.invitados = getInvitados(pack.invitados * bureanoParty.cantidad)[0]" ng-model="bureanoParty.invitados" ng-options="i for i in getInvitados(pack.invitados * bureanoParty.cantidad)">
+          <!-- <option ng-repeat="i in getInvitados(pack.invitados * bureanoParty.cantidad) track by $index">{{$index+1}}</option> -->
+        </select>
+      </label>
+      <div class="item item-divider">
+        Total
+      </div>
+      <a class="item">
+        {{bureanoParty.cantidad}} × {{pack.precio}} € = <strong>{{bureanoParty.cantidad * pack.precio}} €</strong>
+      </a>
+    </div>
+    <div class="party-buttons">
+      <button class="button button-block button-calm ink" ng-click="joinPartyCheckout()"> Finalizar compra <i class="icon ion-card"></i></button>
+    </div>
+  </ion-content>
+</ion-modal-view>

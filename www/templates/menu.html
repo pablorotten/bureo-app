@@ -1,0 +1,55 @@
+<ion-side-menus enable-menu-with-back-views="true">
+  <ion-side-menu-content>
+    <ion-nav-bar class="bar-stable">
+      <ion-nav-back-button>
+      </ion-nav-back-button>      
+
+      <ion-nav-buttons side="right">
+        <button class="button button-icon button-clear ion-navicon" menu-toggle="right">
+        </button>
+      </ion-nav-buttons>
+    </ion-nav-bar>
+    <ion-nav-view name="menuContent"></ion-nav-view>
+  </ion-side-menu-content>
+
+  <ion-side-menu side="right">
+    <ion-header-bar class="expanded">
+      <div ng-if='bureano.avatar' class="avatar" style="background-image: url({{bureano.avatar}});"></div>
+      <h2 style="color: black">{{bureano.nombre}} {{bureano.apellidos}}</h2>
+    </ion-header-bar>
+    <ion-content class="has-expanded-header">
+      <ion-list>
+        <ion-item nav-clear menu-close ui-sref="app.home">
+          <i class="icon ion-home"></i> Inicio
+        </ion-item>
+        <ion-item nav-clear menu-close ui-sref="app.partylocals">
+          <i class="icon ion-android-search"></i> Mostrar Parties
+        </ion-item>
+        <ion-item nav-clear menu-close ui-sref="app.localsPublish">
+          <i class="icon ion-play"></i> Publicar Party
+        </ion-item>
+        <ion-item nav-clear menu-close ui-sref="app.myParties">
+          <i class="icon ion-social-buffer"></i> Mis Parties
+        </ion-item>
+        <ion-item nav-clear menu-close ui-sref="app.mySolicitudes">
+          <i class="icon ion-social-buffer"></i> Tus Solicitudes
+        </ion-item>
+        <ion-item nav-clear menu-close>
+          <i class="icon ion-archive"></i> Bandeja de entrada
+        </ion-item>
+        <ion-item nav-clear menu-close>
+          <i class="icon ion-star"></i> Favoritos
+        </ion-item>
+        <ion-item nav-clear menu-close>
+          <i class="icon ion-settings"></i> Configuración
+        </ion-item>
+        <ion-item nav-clear menu-close>
+          <i class="icon ion-help"></i> Ayuda
+        </ion-item>
+        <ion-item nav-clear menu-close>
+          <i class="icon ion-chatbubble"></i> Danos tu opnión
+        </ion-item>
+      </ion-list>
+    </ion-content>
+  </ion-side-menu>
+</ion-side-menus>

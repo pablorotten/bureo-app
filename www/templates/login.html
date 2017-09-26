@@ -1,0 +1,20 @@
+<ion-view view-title="Login" align-title="left" hide-nav-bar="true">
+  <ion-content class="bureo-background-2">
+    <div class="bureo-logo"></div>
+    <div class="list signup-form" name="signupForm">
+      <label class="item item-input">
+        <span class="input-label">Usuario</span>
+        <input type="text" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" ng-model="userLogin.username" highlight-color="balanced" required>
+      </label>
+      <label class="item item-input">
+        <span class="input-label">Contraseña</span>
+        <input type="password" ng-model="userLogin.password" highlight-color="balanced" required>
+      </label>
+    </div>  
+    <div class="padding">
+      <button ng-click="login()" class="button button-full ink login-button sign-up-button" data-ng-disabled="userLogin.username == null || userLogin.password == null"  focus-me>
+        ACCEDER
+      </button>
+    </div>
+  </ion-content>
+</ion-view>

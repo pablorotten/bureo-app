@@ -1,0 +1,142 @@
+<ion-modal-view>
+    <ion-header-bar>
+      <button class="button button-clear button-primary" ng-click="mySolicitudModal.remove()" style="color: black"><i class="icon ion-android-arrow-back"></i></button>    
+      <h1 class="title">Tu Solicitud {{solicitud.nombre}}</h1>
+    </ion-header-bar>
+    <ion-content class="padding modal-window local-modal" lazy-scroll>
+      <div class="card">
+        <div class="item item-divider">
+          Solicitud de party
+        </div>
+        <div class="item item-text-wrap">
+          <div class="list">
+<!--             <a class="item item-thumbnail-left">
+              <img image-lazy-src="img/partylocal/solicitud.jpg" image-lazy-loader="android" image-lazy-distance-from-bottom-to-load="100">
+              <h2><strong>Nombre: </strong>{{solicitud.nombre}}</h2>
+              <p><strong>Fecha de creación: </strong>{{solicitud.created_at}}</p>
+            </a> -->
+
+            <a class="item item-thumbnail-left item-bureo" ng-class="solicitud.aceptada == 0 ? 'item-assertive' : (solicitud.aceptada == 1 ? 'item-balanced' : '')">
+              <img image-lazy-src="img/partylocal/solicitud.jpg" image-lazy-loader="android" image-lazy-distance-from-bottom-to-load="100">
+              <i ng-show="solicitud.aceptada == 1" class="icon ion-checkmark-round solicitud-icon"></i>
+              <i ng-show="solicitud.aceptada == 0" class="icon ion-close-round solicitud-icon"></i>
+              <i ng-show="solicitud.aceptada == null" class="icon ion-help solicitud-icon"></i>
+              <h2><strong>{{solicitud.nombre}}</strong></h2>
+              <p>{{solicitud.descripcion}}</p>
+              <p><strong>Fecha: </strong>{{solicitud.created_at}}</p>
+            </a>
+
+
+          </div>
+        </div>
+      </div>
+      
+      <div class="card" ng-if="solicitud.aceptada == null">
+        <div class="item item-text-wrap request-state">
+          Estado: En espera
+        </div>
+      </div>
+      <div class="card" ng-if="solicitud.aceptada == 1">
+        <div class="item item-text-wrap accepted request-state item-balanced">
+          Estado: Aceptada
+        </div>
+      </div>
+      <div class="card" ng-if="solicitud.aceptada == 0">
+        <div class="item item-text-wrap rejected request-state item-assertive">
+          Estado: Rechazada
+        </div>
+      </div>
+
+      <div class="list">
+        <div class="item item-divider">
+          Imágenes de la Party
+        </div>
+        <ion-gallery ion-gallery-items="fotos"></ion-gallery>  
+      </div>
+      
+      <div class="list">
+        <div class="item item-divider">
+          Nombre de la Party
+        </div>
+        <a class="item">
+          {{solicitud.nombre}}
+        </a>
+        <div class="item item-divider">
+          Descripción
+        </div>
+        <a class="item">
+          {{solicitud.descripcion}}
+        </a>
+      </div>
+
+      <div class="list">
+        <div class="item item-divider">
+          Información de la Party Solicitada
+        </div>
+        <div class="item item-text-wrap">
+          <div class="list list-inset"> 
+            <div class="item item-body"> <strong>Fecha :</strong> {{solicitud.fecha}} </div>
+            <div class="item item-body"> <strong>Hora de inicio:</strong> {{solicitud.horainicio}}  </div> 
+            <div class="item item-body"> <strong>Invitados:</strong> {{solicitud.invitados}}  </div> 
+            <div class="item item-body"> <strong>Edad mínima:</strong> {{solicitud.edadmin}}  </div> 
+            <div class="item item-body"> <strong>Edad máxima:</strong> {{solicitud.edadmax}}  </div> 
+            <div class="item item-body"> <strong>puntualidad:</strong> {{solicitud.puntualidad}}  </div>
+          </div>  
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="item item-divider">   
+          Música seleccionada
+        </div>
+        <div class="item item-text-wrap">
+          <div class="row">       
+            <div ng-repeat="musica in solicitud.musicas" class = "col col-20 text-center">
+              <button class = "button button-positive"><i class="icon ion-music-note"></i></button><br>
+              {{musica.nombre}}
+            </div> 
+          </div> 
+        </div>
+      </div>
+
+      <ul class="list party">
+        <li class="item">
+          <h2> Local seleccionado</h2>
+          <div class="list card party-card">
+            <div class="item item-avatar">
+              <img image-lazy-src="{{solicitud.local.avatar}}" image-lazy-loader="android" image-lazy-distance-from-bottom-to-load="100">
+              <h2>{{solicitud.local.nombre}}</h2>
+              <p>{{solicitud.local.direccion}}</p>
+            </div>
+            <div class="item item-body">
+              <!-- <img class="full-image center" ng-src="{{solicitud.local.fotolocals[0].url}}">           -->
+              <p>
+                {{solicitud.local.descripcion}}
+              </p>
+              <a class="item item-icon-right" ng-click="showModalLocal({{solicitud.local}})">
+                <i class="icon ion-arrow-right-c">Ver Local</i>
+              </a>
+            </div>
+          </div>
+        </li>
+      </ul>
+
+
+<!--       <div class="card">            
+        <div class="item item-divider">
+          Packs Seleccionados
+        </div>
+        <div class="item item-text-wrap">
+          <div class="list">
+            <a ng-repeat="partylocalPack in solicitudPacks" class="item item-thumbnail-left">
+              <img image-lazy-src="{{partylocalPack.pack.urlimagen}}" image-lazy-loader="android" image-lazy-distance-from-bottom-to-load="100">
+              <h2>{{partylocalPack.pack.nombre}}</h2>
+              <p>{{partylocalPack.pack.descripcion}}</p>
+              <p>Precio: {{partylocalPack.pack.precio}} €</p>
+              <p>Cantidad: {{partylocalPack.cantidad}} </p>
+            </a>
+          </div>
+        </div>
+      </div> -->
+    </ion-content>
+</ion-modal-view>

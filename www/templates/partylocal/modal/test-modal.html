@@ -1,0 +1,16 @@
+<ion-modal-view>
+  <ion-header-bar>
+    <button class="button button-clear button-primary" ng-click="addPacksModal.remove()" style="color: black"><i class="icon ion-android-arrow-back"></i></button>    
+    <h1 class="title">Añade un Pack</h1>
+  </ion-header-bar>
+  <ion-content class="padding modal-window">
+    <div class="list">
+      <a ng-repeat="pack in partylocal.local.packs" class="item item-thumbnail-left" ng-click="addPack(pack)">
+        <img ng-src="{{pack.urlimagen}}">
+        <h2>{{pack.nombre}}</h2>
+        <p>{{pack.descripcion}}</p>
+        <p>{{pack.precio}} €</p>
+      </a>
+    </div>
+  </ion-content>
+</ion-modal-view>

@@ -1,0 +1,46 @@
+<ion-view view-title="Tests" align-title="left">
+    <ion-content style="background-color: #fbc02d;" >
+        <div class="hero flat logo-signup">
+            <div class="content">
+                <div class="bureo-logo"></div>
+            </div>
+        </div> 
+        <div class="padding">
+          <ion-scroll scrollY="true" style="height: 150px; background-color: white; font-size: 15px;">
+            {{display}}
+          </ion-scroll>
+        </div>
+        <div class="padding">
+          <button ng-click="test()" class="button button-full ink login-button sign-up-button">
+            Test 
+          </button>
+          <button ng-click="test2()" class="button button-full ink login-button sign-up-button">
+            Test 2
+          </button>
+
+          <h3 class="center-text">Bureano</h3>
+          <div class="button-bar">
+            <a ng-click="Signup()" class="button">Signup</a>
+            <!-- <a ng-click="testSignupAvatar()" class="button" disabled="disabled">Signup Avatar</a> -->
+            <a ng-click="Login()" class="button">Login</a>
+            <a ng-click="Logout()" class="button" data-ng-disabled="bureano.access_token == null">Logout</a>
+          </div>
+          <div class="button-bar">
+            <a ng-click="Update()" class="button" data-ng-disabled="bureano.access_token == null || bureano.id == null">Update</a>
+            <a ng-click="Whoami()" class="button" data-ng-disabled="bureano.access_token == null">Whoami</a>
+          </div>
+
+          <h3 class="center-text">Solicitud Party</h3>
+          <div class="button-bar">
+            <a ng-click="indexSoliciutdes()" class="button">Index</a>
+            <a ng-click="viewSolicitud()" class="button">View</a>
+          </div>
+          <div class="button-bar">
+            <a ng-click="createSolicitudSinMusica()" class="button">Sin Musica</a>
+            <a ng-click="createSolicitudConMusica()" class="button">Con Musica</a>
+          </div>
+
+        </div> 
+        <div class="padding">
+    </ion-content>
+</ion-view>

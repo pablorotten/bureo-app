@@ -1,0 +1,39 @@
+<ion-view view-title="Selecciona un Local donde celebrar tu Party" cache-view="false">
+  <ion-content ng-class="{expanded:$scope.isExpanded}">
+    <ion-refresher pulling-text="Actualizar Locales..." on-refresh="refreshLocals()">
+    </ion-refresher>
+<!--     <div class="list">    
+      <div class="item item-divider">
+         <i class="icon ion-location result-icon"></i>
+         Granada
+         <p>{{resultados}} resultados</p>
+      </div>
+      <a ng-repeat="local in locals" class="item item-thumbnail-left item-bureo" ng-click="showModalLocal({{local}})">
+        <img ng-src="{{local.avatar}}">
+        <h2>{{local.nombre}}</h2>
+        <p>{{local.descripcion}}</p>
+      </a>
+    </div>
+ -->    
+    <!-- <div class="list">   -->
+
+    <div class="list" ng-repeat="local in localsToFilter() | filter:filterCiudad">
+      <div class="item item-divider">
+         <i class="icon ion-location result-icon"></i>
+         {{local.ciudad}}
+         <p>{{localsPerCiudad[local.ciudad]}} resultados</p>
+      </div>
+      <a ng-repeat="local in locals | filter:{ciudad: local.ciudad}" class="item item-thumbnail-left item-bureo" ng-click="showModalLocal({{local}})">
+        <img image-lazy-src="{{local.avatar}}" image-lazy-loader="android" image-lazy-distance-from-bottom-to-load="100">
+        <h2>{{local.nombre}}</h2>
+        <p>{{local.descripcion}}</p>
+      </a>
+    </div>
+
+<!--     <div ng-repeat="local in localsToFilter() | filter:filterCiudad">
+      <b>{{local.ciudad}}</b>
+      <li ng-repeat="local in locals | filter:{ciudad: local.ciudad}">{{local.nombre}}</li>        
+    </div> -->
+
+  </ion-content>
+</ion-view>

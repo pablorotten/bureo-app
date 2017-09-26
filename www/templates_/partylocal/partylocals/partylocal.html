@@ -1,0 +1,154 @@
+<ion-view view-title="Ver Party" cache-view="false">
+  <ion-content>
+    <ion-refresher pulling-text="Pull to refresh..." on-refresh="refreshParty()">
+    </ion-refresher>
+
+    <div class="slider-container-party">
+      <ion-slide-box does-continue="true" auto-play="true" show-pager="true">
+        <ion-slide ng-repeat="image in partylocal.fotopartylocals" style="background-image: url('{{image.url}}');"">
+        </ion-slide>   
+      </ion-slide-box>  
+      <div class="item item-party-slider">
+        <h1>{{partylocal.nombre}}</h1>
+      </div>
+    </div>
+
+    <ul class="list party">
+      <li class="item">
+        <h2>Descripción</h2>
+          <p>
+            {{partylocal.descripcion}}
+          </p>
+      </li>
+      <li class="item" ng-class="bureanoInParty ? 'accepted' : ''">  
+        <h2>Aforo</h2>
+        <progress max="{{partylocal.invitados}}" value="{{partylocal.bureanos.length}}"></progress>
+        <div class = "text-center">
+          {{partylocal.bureanos.length}} / {{partylocal.invitados}}
+        </div>
+      </li>
+      <li ng-if="bureanoInParty" class="item accepted text-center">  
+        <h1>¡Ya estás en la Party!</h1>        
+        <a class="item item-icon-right" ng-click="showModalPartylocalAttendance()">
+          <i class="icon ion-arrow-right-c">Ver Participación en la Party</i>
+        </a>
+      </li>
+      <li class="item">  
+        <h2>Edad</h2>
+        <div class="row">
+          <div class = "col col-33 text-center">
+            <button class = "button button-positive"><i>{{partylocal.edadmin}}</i></button><br>
+          </div> 
+          <div class = "col col-33 text-center">
+            <button class = "button button-positive"><i class="icon ion-minus-round"></i></button><br>
+          </div> 
+          <div class = "col col-33 text-center">
+            <button class = "button button-positive"><i>{{partylocal.edadmax}}</i></button><br>
+          </div>  
+        </div>  
+      </li>
+      <li class="item">
+        <h2>Opciones</h2>
+        <div class="row">
+          <div class = "col col-33 text-center">
+            <button class = "button button-positive" ng-disabled="false"><i class="icon ion-wineglass"></i></button><br>
+            Alcohol
+          </div> 
+          <div class = "col col-33 text-center">
+            <button class = "button button-positive" ng-disabled="!partylocal.local.comida"><i class="icon ion-pizza"></i></button><br>
+            Comida
+          </div> 
+          <div class = "col col-33 text-center">
+            <button class = "button button-positive" ng-disabled="!partylocal.local.minusvalidos"><i>♿</i></button><br>
+            Minusválidos
+          </div> 
+          <div class = "col col-33 text-center">
+            <button class = "button button-positive" ng-disabled="!partylocal.local.billar"><i>🎱</i></button><br>
+            Billar
+          </div> 
+          <div class = "col col-33 text-center">
+            <button class = "button button-positive" ng-disabled="!partylocal.local.dardos"><i>🎯</i></button><br>
+            Dardos
+          </div> 
+          <div class = "col col-33 text-center">
+            <button class = "button button-positive" ng-disabled="!partylocal.local.futbolin"><i>⚽</i></button><br>
+            Futbolín
+          </div> 
+          <div class = "col col-33 text-center">
+            <button class = "button button-positive" ng-disabled="!partylocal.local.karaoke"><i class="icon ion-mic-b"></i></button><br>
+            Karaoke
+          </div> 
+          <div class = "col col-33 text-center">
+            <button class = "button button-positive" ng-disabled="!partylocal.local.fumar">
+              <i ng-if="partylocal.local.fumar">🚬</i>
+              <i ng-if="!partylocal.local.fumar" class="icon ion-no-smoking"></i>
+            </button><br>
+            Fumar
+          </div> 
+          <div class = "col col-33 text-center">
+            <button class = "button button-positive" ng-disabled="!partylocal.local.piscina"><i>🏊</i></button><br>
+            Piscina
+          </div> 
+          <div class = "col col-33 text-center">
+            <button class = "button button-positive" ng-disabled="!partylocal.local.mascotas"><i class="icon ion-ios-paw"></i></button><br>
+            Mascotas
+          </div> 
+          <div class = "col col-33 text-center">
+            <button class = "button button-positive" ng-disabled="!partylocal.local.jardin"><i>💮</i></button><br>
+            Jardín
+          </div> 
+          <div class = "col col-33 text-center">
+            <button class = "button button-positive" ng-disabled="!partylocal.local.padel"><i>🎾</i></button><br>
+            Pádel
+          </div> 
+        </div>   
+      </li>
+      <li class="item">   
+        <h2>Música</h2>
+        <div class="row">       
+          <div ng-repeat="musica in partylocal.musicas" class = "col col-20 text-center">
+            <button class = "button button-positive"><i class="icon ion-music-note"></i></button><br>
+            {{musica.nombre}}
+          </div> 
+        </div> 
+      </li>
+      <li class="item">  
+        <h2>Localización</h2>
+        <div class="party-map padding">
+        </div>  
+      </li>
+      <li class="item">
+        <h2>Más información</h2>
+        <div class="list list-inset"> 
+          <div class="item item-body"> Dirección: {{partylocal.local.direccion}} </div>
+         <div class="item item-body"> Invitados: {{partylocal.invitados}}  </div> 
+          <div class="item item-body"> Ciudad: {{partylocal.local.ciudad}} </div> 
+        </div>   
+      </li>
+      <li class="item">
+        <h2> Local </h2>
+        <div class="list card party-card">
+          <div class="item item-avatar">
+            <img ng-src="{{partylocal.local.avatar}}">
+            <h2>{{partylocal.local.nombre}}</h2>
+            <p>{{partylocal.local.direccion}}</p>
+          </div>
+          <div class="item item-body">
+            <!-- <img class="full-image center" ng-src="{{partylocal.local.fotolocals[0].url}}">           -->
+            <p>
+              {{partylocal.local.descripcion}}
+            </p>
+            <a class="item item-icon-right" ng-click="showModalLocal()">
+              <i class="icon ion-arrow-right-c">Ver Local</i>
+            </a>
+          </div>
+        </div>
+      </li>
+    </ul>
+    <div class="party-buttons">
+      <button class="button button-block button-calm ink" ng-if="!bureanoInParty" ng-click="showModalPacks()"> Asistir </button>
+      <button class="button button-block button-calm ink" ng-if="bureanoInParty" ng-click="showAddPacksModal()"> Añade un Pack </button>
+      <!-- <button class="button button-block button-calm ink" ng-click="join_party()"  ng-disabled="true"> Invitar </button> -->
+    </div>
+  </ion-content>
+</ion-view>

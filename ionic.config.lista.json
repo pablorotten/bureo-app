@@ -1,0 +1,21 @@
+{
+  "name": "bureo",
+  "app_id": "",
+  "proxies": [
+    {
+      "path": "/BureoApi",
+      "proxyUrl": "http://localhost/bureo/frontend/web"
+    }
+  ]
+}
+
+{
+  "name": "bureo",
+  "app_id": "",
+  "proxies": [
+    {
+      "path": "/BureoApi",
+      "proxyUrl": "http://bureo.rtawebapp.com/frontend/web/index.php"
+    }
+  ]
+}

@@ -1,0 +1,53 @@
+<ion-view view-title="Asistencia a Party {{bureanoPartylocal.partylocal.nombre}}" cache-view="false">
+  <ion-content>
+    <ion-refresher pulling-text="Pull to refresh..." on-refresh="refreshAttendance()">
+    </ion-refresher>
+    <div class="card">            
+      <div class="item item-divider">
+        Asistencia a Party {{bureanoPartylocal.partylocal.nombre}}
+      </div>
+      <div class="item item-text-wrap">
+        <div class="list">
+          <!-- <a class="item item-thumbnail-left" ui-sref="app.viewParty({id:{{bureanoPartylocal.partylocal.id}}})"> -->
+          <a class="item item-thumbnail-left" ui-sref="app.partylocals.partylocal({id:bureanoPartylocal.partylocal.id})">
+            <img ng-src="{{bureanoPartylocal.partylocal.avatar}}">
+            <h2>{{bureanoPartylocal.partylocal.nombre}}</h2>
+            <p>{{bureanoPartylocal.partylocal.descripcion}}</p>
+            <p>Anfitrión de la party</p>
+            <p class="link bureo-link">Ver Party <i class="icon ion-arrow-right-c"></i></p>
+          </a>
+        </div>
+      </div>
+    </div>
+    
+    <div class="list">
+      <div class="item item-divider">
+        Información
+      </div>
+      <div class="item item-text-wrap">
+        <div class="list list-inset"> 
+          <div class="item item-body"> <strong>Fecha de inscripción:</strong> {{bureanoPartylocal.created_at}} </div>
+         <div class="item item-body"> <strong>Invitados:</strong> {{bureanoPartylocal.invitados}}  </div> 
+          <div class="item item-body"> <strong>Importe total:</strong> {{bureanoPartylocal.importetotal}}€ </div> 
+        </div>  
+      </div>
+    </div>
+    
+    <div class="card">            
+      <div class="item item-divider">
+        Packs Seleccionados
+      </div>
+      <div class="item item-text-wrap">
+        <div class="list">
+          <a ng-repeat="partylocalPack in bureanoPartylocal.partylocalPacks" class="item item-thumbnail-left">
+            <img ng-src="{{partylocalPack.pack.urlimagen}}">
+            <h2>{{partylocalPack.pack.nombre}}</h2>
+            <p>{{partylocalPack.pack.descripcion}}</p>
+            <p>Precio: {{partylocalPack.pack.precio}} €</p>
+            <p>Cantidad: {{partylocalPack.cantidad}} </p>
+          </a>
+        </div>
+      </div>
+    </div>
+  </ion-content>
+</ion-view>

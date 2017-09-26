@@ -1,0 +1,20 @@
+<ion-view view-title="Buscar Parties" cache-view="false">
+  <ion-content>
+    <ion-refresher pulling-text="Arrastra para actualizar..." on-refresh="refreshParties()">
+    </ion-refresher>
+    <div>
+      <a class="item">
+        <i class="icon ion-location result-icon"></i>
+        Granada
+        <p>{{resultados}} resultados</p>
+      </a>
+    </div>
+    <div class="list">
+      <a ng-repeat="party in parties" class="item item-thumbnail-left item-bureo" ui-sref="app.partylocals.partylocal({id:party.id})">
+        <img ng-src="{{party.avatar}}">
+        <h2>{{party.nombre}}</h2>
+        <p>{{party.descripcion}}</p>
+      </a>
+    </div>
+  </ion-content>
+</ion-view>

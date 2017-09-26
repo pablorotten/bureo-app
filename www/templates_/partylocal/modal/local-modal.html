@@ -1,0 +1,129 @@
+<ion-modal-view>
+    <ion-header-bar>
+      <button class="button button-clear button-primary" ng-click="modalLocal.remove()" style="color: black"><i class="icon ion-android-arrow-back"></i></button>    
+      <h1 class="title">{{local.nombre}}</h1>
+    </ion-header-bar>
+    <ion-content class="padding modal-window local-modal">
+      <div class="slider-container-party">
+        <ion-slide-box does-continue="true" auto-play="true" show-pager="true">
+          <ion-slide ng-repeat="image in local.fotolocals"  style="background-image: url('{{image.url}}');"">
+          </ion-slide>   
+        </ion-slide-box>  
+      </div>
+      <div class="list">
+        <a class="item item-thumbnail-left">
+          <img ng-src="{{local.avatar}}">
+          <h2>{{local.nombre}}</h2>
+          <p>{{local.direccion}}</p>
+        </a>
+      </div>
+      <div class="card">
+        <div class="item item-divider">
+          Descipción
+        </div>
+        <div class="item item-text-wrap">
+          {{local.descripcion}}
+        </div>
+
+        <div class="item item-divider">
+          Dirección
+        </div>
+        <div class="item item-text-wrap">
+          {{local.direccion}}
+        </div>
+        <div class="item item-text-wrap">
+          Mapa
+        </div>
+        
+        <div class="item item-divider">
+          Facilidades
+        </div>        
+        <div class="row">
+          <div class="col col-20 text-center" ng-if="true">
+            <button class="button button-positive" ><i class="icon ion-wineglass"></i></button><br>
+            Alcohol
+          </div> 
+          <div class="col col-20 text-center" ng-if="local.comida">
+            <button class="button button-positive"><i class="icon ion-pizza"></i></button><br>
+            Comida
+          </div> 
+          <div class="col col-20 text-center" ng-if="local.minusvalidos">
+            <button class="button button-positive"><i>♿</i></button><br>
+            Minusválidos
+          </div> 
+          <div class="col col-20 text-center" ng-if="local.billar">
+            <button class="button button-positive"><i>🎱</i></button><br>
+            Billar
+          </div> 
+          <div class="col col-20 text-center" ng-if="local.dardos">
+            <button class="button button-positive"><i>🎯</i></button><br>
+            Dardos
+          </div> 
+          <div class="col col-20 text-center" ng-if="local.futbolin">
+            <button class="button button-positive"><i>⚽</i></button><br>
+            Futbolín
+          </div> 
+          <div class="col col-20 text-center" ng-if="local.karaoke">
+            <button class="button button-positive"><i class="icon ion-mic-b"></i></button><br>
+            Karaoke
+          </div> 
+          <div class="col col-20 text-center" ng-if="local.fumar">
+            <button class="button button-positive"><i class="icon ion-no-smoking"></i></button><br>
+            Fumar
+          </div> 
+          <div class="col col-20 text-center" ng-if="local.piscina">
+            <button class="button button-positive"><i>🏊</i></button><br>
+            Piscina
+          </div> 
+          <div class="col col-20 text-center" ng-if="local.mascotas">
+            <button class="button button-positive"><i class="icon ion-ios-paw"></i></button><br>
+            Mascotas
+          </div> 
+          <div class="col col-20 text-center" ng-if="local.jardin">
+            <button class="button button-positive"><i>💮</i></button><br>
+            Jardín
+          </div> 
+          <div class="col col-20 text-center" ng-if="local.padel">
+            <button class="button button-positive"><i>🎾</i></button><br>
+            Pádel
+          </div> 
+        </div>   
+        
+        <div class="item item-divider">
+          Packs
+        </div>
+        <div class="item item-text-wrap">
+          <div class="list">
+            <a ng-repeat="pack in local.packs" class="item item-thumbnail-left">
+              <img ng-src="{{pack.urlimagen}}">
+              <h2>{{pack.nombre}}</h2>
+              <p>{{pack.descripcion}}</p>
+              <p>{{pack.precio}} €</p>
+            </a>
+          </div>
+        </div>
+        
+        <div class="item item-divider">
+          Contacto
+        </div>
+        <div class="item item-text-wrap">
+          E-mail: {{local.mail}}
+        </div>
+        <div class="item item-text-wrap">
+          Teléfono: {{local.telefono1}}
+        </div>
+        <div class="item item-text-wrap">
+          Facebook: {{local.facebook}}
+        </div>
+        <div class="item item-text-wrap">
+          Instagram: {{local.instagram}}
+        </div>
+        <div class="item item-text-wrap">
+          Twitter: {{local.twitter}}
+        </div>
+        <div class="item item-text-wrap">
+          Web: {{local.web}}
+        </div>
+      </div>
+    </ion-content>
+</ion-modal-view>

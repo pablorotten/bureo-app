@@ -1,0 +1,20 @@
+<ion-view view-title="Selecciona un Local donde celebrar tu Party" cache-view="false">
+  <ion-content ng-class="{expanded:$scope.isExpanded}">
+    <ion-refresher pulling-text="Actualizar Locales..." on-refresh="refreshLocals()">
+    </ion-refresher>
+    <div>
+      <a class="item">
+        <i class="icon ion-location result-icon"></i>
+        Granada
+        <p>{{resultados}} resultados</p>
+      </a>
+    </div>
+    <div class="list">
+      <a ng-repeat="local in locals" class="item item-thumbnail-left item-bureo" ng-click="showModalLocal({{local}})">
+        <img ng-src="{{local.avatar}}">
+        <h2>{{local.nombre}}</h2>
+        <p>{{local.descripcion}}</p>
+      </a>
+    </div>
+  </ion-content>
+</ion-view>

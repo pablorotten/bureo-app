@@ -1,0 +1,18 @@
+<ion-view view-title="Mis Parties" cache-view="false">
+  <ion-content ng-class="{expanded:$scope.isExpanded}">
+    <ion-refresher pulling-text="Pull to refresh..." on-refresh="refreshParties()">
+    </ion-refresher>
+    <div>
+      <a class="item">
+        Tus futuras Parties
+      </a>
+    </div>
+    <div class="list">
+      <a ng-repeat="party in parties" class="item item-thumbnail-left item-bureo" ng-click="verModalBureanoPartylocal({{party.id}})">
+        <img ng-src="{{party.avatar}}">
+        <h2>{{party.nombre}}</h2>
+        <p>{{party.descripcion}}</p>
+      </a>
+    </div>
+  </ion-content>
+</ion-view>

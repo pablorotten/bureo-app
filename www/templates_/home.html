@@ -1,0 +1,18 @@
+<ion-view view-title="Inicio" hide-back-button="true" hide-nav-bar="false">
+  <ion-content class="bureo-background-1">
+    <div class="slider-container-home">
+      <ion-slide-box on-slide-changed="slideHasChanged($index)" show-pager="false" does-continue="true" auto-play="true">
+        <ion-slide ng-repeat="image in sliderImages"  style="background-image: url('{{image.src}}');"">
+        </ion-slide>        
+      </ion-slide-box>
+      <div class="item item-avatar-slider">
+        <div ng-if='bureano.avatar' class="avatar center" style="background-image: url('{{bureano.avatar}}');"></div>
+        <div ng-if='!bureano.avatar' class="avatar center"></div>
+      </div>
+    </div>
+    <div class="item item-body">
+      <h2 class="padding double-padding-x text-center">¡Bienvenido {{bureano.username}}!</h2>
+    </div>
+      <h1 class="padding double-padding-x text-center">{{frase}}</h1>
+  </ion-content>
+</ion-view>

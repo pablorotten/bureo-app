@@ -1,0 +1,101 @@
+<ion-view view-title="Publicar Party">
+    <ion-content>
+      <form name="publishForm" novalidate >
+        <div class="list card publishParty">
+          
+          <div class="item">
+            <label><span class="input-label">Local seleccionado:</span></label>
+            <div class="list card publish-card">
+              <div class="item item-avatar">
+                <img ng-src="{{local.avatar}}">
+                <h2>{{local.nombre}}</h2>
+                <p>{{local.direccion}}</p>
+              </div>
+            </div>
+          </div>
+
+          <label class="item item-input item-stacked-label">
+            <span class="input-label">Nombre de party</span>
+            <input type="text" placeholder="Party Halloween" ng-model="partylocal.nombre" name="nombre" required>
+          </label>
+
+          <label class="item item-input item-stacked-label">
+            <span class="input-label">Descripción</span>
+            <textarea placeholder="Información sobre la Party" rows="8" cols="10" style="resize: none;" ng-model="partylocal.descripcion" name="descripcion" required>
+            </textarea>
+          </label>
+
+          <label class="item item-input item-select">
+            <div class="input-label">Número de invitados</div>
+            <select ng-init="partylocal.invitados = invitados[19]" 
+                    ng-model="partylocal.invitados" 
+                    ng-options="number for number in invitados"
+                    name="invitados" 
+                    required>
+            </select>
+          </label>
+
+          <label class="item item-input item-select">
+            <div class="input-label">Edad mínima</div>
+            <select ng-init="partylocal.edadmin = edadmin[0]" 
+                    ng-model="partylocal.edadmin" 
+                    ng-options="number for number in edadmin"
+                    name="edadmin" 
+                    required>
+            </select>
+          </label>
+
+          <label class="item item-input item-select" ng-class="partylocal.edadmin > partylocal.edadmax ? 'item-assertive' : ''" required>
+            <div class="input-label">Edad máxima</div>
+            <select ng-init="partylocal.edadmax = edadmax[0]" 
+                    ng-model="partylocal.edadmax" 
+                    ng-options="number for number in edadmax"
+                    name="edadmax" 
+                    required>
+            </select>
+          </label>
+
+          <button class="button icon-left button-block" ng-click="set_start_time()">
+            Hora inicio: {{partylocal.horainicio | date:"HH:mm" : 'UTC'}} 
+          </button> 
+
+          <label class="item item-input" ng-class="selected.date < todaysDate ? 'item-assertive' : ''">
+            <span class="input-label">Fecha</span>
+            <input type="date" ng-model="selected.date" name="date" ng-change="checkDate(selected.date, todaysDate)" required>
+          </label>
+<!-- 
+          <div class="item">
+            <label><span class="input-label">Música de la Party:</span></label>
+            <div class="list card publish-card">
+              <ion-list>
+                <ion-checkbox ng-repeat="musica in local.musicas" ng-model="musicas[musica.id]" ng-change="validateForm()">{{musica.nombre}}</ion-checkbox>
+              </ion-list>
+            </div>
+          </div> -->
+
+          <div class="item">
+            <label><span class="input-label">Música de la Party:</span></label>
+            <div class="list card publish-card">
+              <ion-list ng-init="initMusic(publishForm)" >
+                <ion-checkbox ng-repeat="musica in local.musicas" ng-click="toggleMusic(musica, publishForm)"> 
+                  {{musica.nombre}}
+                </ion-checkbox>
+              </ion-list>
+            </div>
+          </div>
+
+          <div class="card errors" ng-show="publishForm.$invalid || errors.music || partylocal.edadmin > partylocal.edadmax">
+            <div class="item item-energized item-text-wrap">
+              <p class="warn-message" ng-show="publishForm.nombre.$error.required"><i class="icon ion-alert-circled"></i> Se requiere Nombre</p>
+              <p class="warn-message"  ng-show="publishForm.descripcion.$error.required"><i class="icon ion-alert-circled"></i> Se requiere Descripcion</p>
+              <p class="warn-message"  ng-show="partylocal.edadmin > partylocal.edadmax"><i class="icon ion-alert-circled"></i> La edad máxima debe ser menor que la edad mínima</p>
+              <p class="warn-message"  ng-show="errors.music"><i class="icon ion-alert-circled"></i> Hay que seleccionar al menos 1 música</p>
+              <p class="warn-message"  ng-show="errors.date"><i class="icon ion-alert-circled"></i> La fecha debe ser superior a hoy</p>
+            </div>
+          </div>
+        <!-- <button class="button button-block button-calm" ng-click="publishPartylocal()" ng-disabled="publishForm.$invalid"> Publicar Party </button>   -->
+        <button class="button button-block button-calm" ng-click="publishPartylocal()" ng-disabled="publishForm.$invalid || errors.music || partylocal.edadmin > partylocal.edadmax"> Publicar Party </button>  
+      </div>
+    </form>
+  </ion-content>
+</ion-view>

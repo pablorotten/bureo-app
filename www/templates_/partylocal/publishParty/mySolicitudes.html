@@ -1,0 +1,22 @@
+<ion-view view-title="Mis solicitudes" cache-view="false">
+  <ion-content ng-class="{expanded:$scope.isExpanded}">
+    <ion-refresher pulling-text="Actualizar solicitudes" on-refresh="refreshSolicitudes()">
+    </ion-refresher>
+    <div>
+      <a class="item">
+        Tus Solicitudes
+      </a>
+    </div>
+    <div class="list">
+      <a ng-repeat="solicitud in solicitudes" class="item item-thumbnail-left item-bureo" ng-class="solicitud.aceptada == 0 ? 'rejected' : (solicitud.aceptada == 1 ? 'accepted' : '')" ng-click="showModalMySolicitud({{solicitud.id}})">
+        <img ng-src="img/partylocal/solicitud.jpg">
+        <h2><strong>{{solicitud.nombre}}</strong></h2>
+        <p>{{solicitud.descripcion}}</p>
+        <h3 ng-if="solicitud.aceptada == 0">Estado: Rechazada</h3>
+        <h3 ng-if="solicitud.aceptada == 1">Estado: Aceptada</h3>
+        <h3 ng-if="solicitud.aceptada == null">Estado: En espera</h3>
+        <p><strong>Fecha: </strong>{{solicitud.created_at}}</p>
+      </a>
+    </div>
+  </ion-content>
+</ion-view>

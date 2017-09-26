@@ -1,0 +1,495 @@
+/* General
+==================================*/
+.bureo-background-1{
+  background-color: #fbc02d !important;
+}
+
+.bureo-background-2{
+  background-color: black !important;
+}
+
+.scroll {
+  height: 100%;
+}
+ 
+.google-map {
+  width: 100% !important;
+  height: 200px !important;
+}
+
+.button{
+  text-transform: capitalize;
+  font-size: 18px;
+  box-shadow: none;
+}
+
+.ion-navicon{
+  color: black !important;
+}
+
+.item-md-label input{
+  background-color: transparent;
+  color: black;
+}
+
+ion-header-bar{
+  background-color: #ffffff !important;
+  background-size: 0px !important;
+}
+ion-header-bar .ion-navicon{
+    background-color: #fbc02d !important;
+}
+
+.center {
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+}
+
+.center-text {
+  text-align: center;
+}
+
+.avatar{
+  height: 120px;
+  width: 120px;
+  position: initial;
+  background: no-repeat center center; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+
+  border-radius: 50%;
+}
+
+.item-bureo{
+  margin:  3px !important;
+}
+
+/* .accepted{
+  background-color: #5cb85c
+}
+
+.accepted h1, .accepted h2{
+  color: white;
+}
+
+.accepted h1{
+  font-size: 40px;
+}
+
+.rejected{
+  background-color: red;
+  color: white;
+}
+
+.rejected h1, .rejected h2{
+  color: white;
+}
+
+.rejected h1{
+  font-size: 40px;
+}
+
+.rejected a{
+  background-color: white;
+}
+
+.rejected p{
+  color: white;
+}
+
+.rejected{
+  background-color: red;
+  color: white;
+} */
+
+/* .modal{
+  background-color: rgba(154, 142, 111, 0.83);
+} */
+
+/* Slider de ventana modal */
+
+.slide-in-right {
+  -webkit-transform: translateX(100%);
+  transform: translateX(100%); 
+}
+
+.slide-in-right.ng-enter, .slide-in-right > .ng-enter {
+  -webkit-transition: all cubic-bezier(0.1, 0.7, 0.1, 1) 400ms;
+  transition: all cubic-bezier(0.1, 0.7, 0.1, 1) 400ms; 
+}
+
+.slide-in-right.ng-enter-active, .slide-in-right > .ng-enter-active {
+  -webkit-transform: translateX(0);
+  transform: translateX(0); 
+}
+
+.slide-in-right.ng-leave, .slide-in-right > .ng-leave {
+  -webkit-transition: all ease-in-out 250ms;
+  transition: all ease-in-out 250ms; 
+}
+
+.item .item-icon-right{
+  background-color: #FB5D76;
+  color: white;
+}
+
+.bureo-link{
+  background-color: #FB5D76;
+  color: white !important;
+}
+
+/* Slider
+==================================*/
+
+.slider-container-home{
+  height: 60%;
+}
+
+.slider-container-party{
+  height: 30%;
+}
+
+.slider {
+  height: 100%;
+}
+.slider-slide {
+  padding-top: 80px;
+  color: #000;
+  background-color: #fff;
+  text-align: center;
+  background-size: auto 100%;
+  font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
+  font-weight: 300;
+  background-position: center; 
+}
+
+.local-slide{
+  background-size: 100% auto !important;
+}
+
+.item-avatar-slider{
+  background: rgba(255, 255, 255, 0.8);
+  position: relative;
+  top: -152px;
+}
+
+#logo {
+  margin: 30px 0px;
+}
+
+#list {
+  width: 170px;
+  margin: 30px auto;
+  font-size: 20px;
+}
+#list ol {
+  margin-top: 30px;
+}
+#list ol li {
+  text-align: left;
+  list-style: decimal;
+  margin: 10px 0px;
+}
+
+.button.ng-hide{
+  display:none;
+}
+
+.item .link{
+  color:  blue;
+  text-align: right;
+}
+.title-bordered {
+  border-top: solid 2px #bbb;
+  padding-top: 30px;
+}
+
+p {
+  color: #555;
+  margin: 0 0 25px;
+}
+
+.scroll {
+  height: 100%;
+}
+
+/* Menu
+==================================*/
+
+.has-expanded-header{
+  top: 150px;
+}
+
+.menu h2 {
+  bottom: 0;
+  font-size: 18px;
+  left: 16px;
+  position: absolute;
+}
+
+.menu .avatar {
+  height: 88px;
+  width: 88px;
+}
+
+.menu .bar.bar-header.expanded {
+  box-shadow: none;
+  min-height: 150px;
+  color: #fff;
+}
+
+.menu .list .item {
+  border: none;
+  min-height: 48px;
+  text-align: left;
+}
+
+/* Start
+==================================*/
+
+.logo-container{
+  height: 340px !important;
+}
+
+.bureo-logo {
+  background-color: #fff;
+  background: url('../img/logo.jpg') center;
+  height: 270px;
+  margin: 0 auto;
+  width: 100%;    
+  background-size:     cover;                      /* <------ */
+  background-repeat:   no-repeat;
+  background-position: center center; 
+}
+
+.bureo-logo2 {
+  background-color: #fff;
+  background: url('../img/logo2.png') center;
+  height: 270px;
+  margin: 0 auto;
+  width: 100%;    
+  background-size:     cover;                      /* <------ */
+  background-repeat:   no-repeat;
+  background-position: center center; 
+}
+
+.social-login {
+  position: fixed;
+  bottom: 0;
+}
+
+#login-button{
+  top: 10px;
+  background-color: transparent;
+  box-shadow: none;
+}
+
+.login-button {
+  -moz-border-radius:28px;
+  -webkit-border-radius:28px;
+  border-radius:28px;
+  display:inline-block;
+  cursor:pointer;
+  text-decoration:none;
+}
+
+.facebook-login{
+  background-color: rgb(58,86,157) !important;
+  background: url('../img/facebook-icon.png') left;
+  background-size: 60px;
+  background-repeat: no-repeat;
+  background-position: -7px center;
+}
+
+.google-login{
+  background-color: rgb(217,82,49) !important;
+  background: url('../img/google-plus-icon.png') left;
+  background-size: 60px;
+  background-repeat: no-repeat;
+  background-position: -7px center;
+}
+
+
+/* Signup
+==================================*/
+.sign-up-button{
+  background-color:transparent !important;
+  border:1px solid #ffffff;
+  color:#ffffff;
+}
+
+.item-floating-label {
+  border-bottom: solid 3px #fff !important;
+}
+
+.input-label{
+  color: black !important;
+  font-size: 20px;
+}
+
+.signup-form input{
+  background-color: transparent;
+  border-style: solid;
+  border-color: #fff;
+  border-width: 0px 0px 2px;
+}
+
+.signup-form label{
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.signup-form *::-webkit-input-placeholder {
+  color: black !important;
+  font-size: 20px;
+}
+
+.signup-form *:-moz-placeholder { /* Firefox 18- */
+  color: black !important; 
+  font-size: 20px; 
+}
+
+.signup-form *::-moz-placeholder {  /* Firefox 19+ */
+  color: black !important;  
+  font-size: 20px;
+}
+
+.signup-form *:-ms-input-placeholder {  
+  color: black !important;  
+  font-size: 20px;
+}
+
+.logo-signup{
+  height: 80px;
+}
+ 
+.home-background{
+  height: 60% !important;
+}
+
+.avatar-signup{
+  width: 200px !important;    
+  height: 200px;    
+}
+
+/* Results
+==================================*/
+
+.results h2{
+  color: black;
+}
+
+.item-avatar img{
+  max-height: 55px !important;
+  max-width: 55px !important;
+}
+
+.result-icon{
+  position: absolute;
+  font-size: 30px;
+  right: 15px;
+  color: grey;
+}
+
+.bar-transparent{
+  background-color: transparent !important;
+  position: relative;
+}
+
+/* Publish
+==================================*/
+
+.publishForm input{
+  padding: 0px;
+  width: 100%;
+}
+
+.gallery {
+  -webkit-flex-wrap: wrap;
+  flex-wrap: wrap;
+}
+
+.row{
+  flex-wrap: wrap;
+}
+
+.errors .item .warn-message{
+  color: white;
+}
+/* indexParties
+==================================*/
+
+.party-icons i{
+  font-size: 20px;
+}
+
+/* viewParty
+==================================*/
+
+.item-party-slider{
+  background: rgba(255, 255, 255, 0.8);
+  position: relative;
+  top: -76px;
+}
+
+.party .item i{
+  font-size: 22px;
+}
+
+.local-modal .row .col-20{
+  padding: 0px;
+}
+
+.party-card .item-body img{
+  width: 200px; /* you can use % */
+  height: auto;
+}
+
+.publish-card:last-child.card{
+  margin: 0px;
+} 
+
+.card .request-state{
+  font-size: x-large;
+}
+
+/* Mis solicitudes
+==================================*/
+
+.solicitud-icon{
+  position: absolute;
+  top: 60px;
+  left: 60px;
+  max-width: 80px;
+  max-height: 80px;
+  width: 100%;
+  height: 100%;
+  font-size: 40px;
+}
+
+i.solicitud-icon{
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+}
+
+i.solicitud-icon.ion-checkmark-round{
+  color: rgb(0, 255, 0);
+}
+
+i.solicitud-icon.ion-close-round{
+  color: rgb(255, 0, 0);
+}
+
+i.solicitud-icon.ion-help{
+  color: #11C1F3;
+}
+
+.item-bureo.item-assertive h1, .item-bureo.item-assertive h2, .item-bureo.item-assertive p, .item-bureo.item-balanced h1, .item-bureo.item-balanced h2, .item-bureo.item-balanced p{
+  color: white;
+}
+
+.labelClass{
+  color:  red;
+}

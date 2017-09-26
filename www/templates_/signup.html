@@ -1,0 +1,49 @@
+<ion-view view-title="Crear cuenta" align-title="left" hide-nav-bar="true">
+    <ion-content class="bureo-background-2">
+
+                <div class="bureo-logo"></div>
+
+        <div class="list signup-form" name="signupForm">
+          <label class="item item-input">
+            <span class="input-label">Nombre</span>
+            <input type="text" ng-model="newUser.nombre" highlight-color="balanced" required>
+          </label>
+          <label class="item item-input">
+            <span class="input-label">Apellidos</span>
+            <input type="text" ng-model="newUser.apellidos" highlight-color="balanced" required>
+          </label>
+          <label class="item item-input">
+            <span class="input-label">E-mail</span>
+            <input type="text" ng-model="newUser.mail" highlight-color="balanced" required>
+          </label>
+          <label class="item item-input">
+            <span class="input-label">Nombre de usuario</span>
+            <input type="text" ng-model="newUser.username" highlight-color="balanced" required>
+          </label>
+          <label class="item item-input">
+            <span class="input-label">Edad</span>
+            <input type="number" ng-model="newUser.edad" highlight-color="balanced" required>
+          </label>
+          <label class="item item-input">
+            <span class="input-label">Contraseña</span>
+            <input type="password" ng-model="newUser.password" highlight-color="balanced" required>
+          </label>
+        </div>   
+        <div class="row">
+            <h3>Foto de perfil</h3>
+        </div>   
+
+        <div class="padding profile-image-container">
+            <img class="avatar-signup" ng-src="{{newUser.avatar == null ? 'img/profile.png' : newUser.avatar}}" ng-click="saveImage()">
+        </div>
+
+        <div class="padding">
+            <button ng-click="signup()" class="button button-full ink login-button sign-up-button" data-ng-disabled="newUser.nombre == null || newUser.apellidos == null || newUser.mail == null || newUser.username == null || newUser.password == null">
+                CREAR CUENTA
+            </button>
+            <button ng-click="signup2()" class="button button-full ink login-button sign-up-button">
+                CREAR CUENTA TEST
+            </button>
+        </div>
+    </ion-content>
+</ion-view>

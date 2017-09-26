@@ -1,0 +1,55 @@
+<ion-modal-view>
+    <ion-header-bar>
+      <button class="button button-clear button-primary" ng-click="modalPartylocalAttendance.remove()" style="color: black"><i class="icon ion-android-arrow-back"></i></button>    
+      <h1 class="title">Tu participación en {{partylocalAttendance.partylocal.nombre}}</h1>
+    </ion-header-bar>
+    <ion-content class="padding modal-window local-modal" lazy-scroll>
+      <div class="card">            
+        <div class="item item-divider">
+          Party
+        </div>
+        <div class="item item-text-wrap">
+          <div class="list">
+            <!-- <a class="item item-thumbnail-left" ui-sref="app.viewParty({id:{{partylocalAttendance.partylocal.id}}})"> -->
+            <a class="item item-thumbnail-left" ui-sref="app.viewParty({id:partylocalAttendance.partylocal.id})" ng-click="modalPartylocalAttendance.remove()">
+              <img image-lazy-src="{{partylocalAttendance.partylocal.avatar}}" image-lazy-loader="android" image-lazy-distance-from-bottom-to-load="100">
+              <h2>{{partylocalAttendance.partylocal.nombre}}</h2>
+              <p>{{partylocalAttendance.partylocal.descripcion}}</p>
+              <p>Anfitrión de la party</p>
+              <!-- <p class="link">Ver Party <i class="icon ion-arrow-right-c"></i></p> -->
+            </a>
+          </div>
+        </div>
+      </div>
+      
+      <div class="list">
+        <div class="item item-divider">
+          Información
+        </div>
+        <div class="item item-text-wrap">
+          <div class="list list-inset"> 
+            <div class="item item-body"> <strong>Fecha de inscripción:</strong> {{partylocalAttendance.created_at}} </div>
+           <div class="item item-body"> <strong>Invitados:</strong> {{partylocalAttendance.invitados}}  </div> 
+            <div class="item item-body"> <strong>Importe total:</strong> {{partylocalAttendance.importetotal}}€ </div> 
+          </div>  
+        </div>
+      </div>
+      
+      <div class="card">            
+        <div class="item item-divider">
+          Packs Seleccionados
+        </div>
+        <div class="item item-text-wrap">
+          <div class="list">
+            <a ng-repeat="partylocalPack in partylocalAttendance.partylocalPacks" class="item item-thumbnail-left">
+              <img image-lazy-src="{{partylocalPack.pack.urlimagen}}" image-lazy-loader="android" image-lazy-distance-from-bottom-to-load="100">
+              <h2>{{partylocalPack.pack.nombre}}</h2>
+              <p>{{partylocalPack.pack.descripcion}}</p>
+              <p>Precio: {{partylocalPack.pack.precio}} €</p>
+              <p>Cantidad: {{partylocalPack.cantidad}} </p>
+            </a>
+          </div>
+        </div>
+      </div>
+    </ion-content>
+</ion-modal-view>

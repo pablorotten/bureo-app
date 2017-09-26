@@ -1,0 +1,19 @@
+<ion-view view-title="Buscar Parties" cache-view="false">
+  <ion-content lazy-scroll>
+    <ion-refresher pulling-text="Arrastra para actualizar..." on-refresh="refreshParties()">
+    </ion-refresher>
+    <div class="list" ng-repeat="party in partiesToFilter() | filter:filterLocation">
+      <div class="item item-divider">
+         <i class="icon ion-location result-icon"></i>
+         {{party.local.ciudad}}
+         <p>{{partiesPerCiudad[party.local.ciudad]}} resultados</p>
+      </div>
+      <!-- <a ng-repeat="party in parties" class="item item-thumbnail-left item-bureo" ui-sref="app.partylocals.partylocal({id:party.id})"> -->
+      <a ng-repeat="party in parties | filter:{location: partyLocation.location}" class="item item-thumbnail-left item-bureo"  href="#/app/partylocals/{{party.id}}">
+        <img image-lazy-src="{{party.avatar}}" image-lazy-loader="android" image-lazy-distance-from-bottom-to-load="100">
+        <h2>{{party.nombre}}</h2>
+        <p>{{party.descripcion}}</p>
+      </a>
+    </div>
+  </ion-content>
+</ion-view>
