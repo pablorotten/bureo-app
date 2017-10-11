@@ -11,8 +11,7 @@ angular.module('bureo.controllers')
     autoLogin.login();
   }
 
-
-  console.debug("Welcome Bureano: ",$rootScope.bureano);
+  console.debug("Welcome Bureano to the app: ",$rootScope.bureano);
   $scope.sliderImages = [{id: 1, src: "img/home_slider/1.jpg"},{id: 2, src: "img/home_slider/2.jpg"},{id: 3, src: "img/home_slider/3.jpg"},{id: 4, src: "img/home_slider/4.jpg"}];
   
   var frases = new Array(
