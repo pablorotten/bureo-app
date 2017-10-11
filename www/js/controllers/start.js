@@ -9,6 +9,5 @@ angular.module('bureo.controllers')
     //Publicar partylocal en local 1
     $state.go('app.publishPartylocal', {'localid':1});
     // $state.go('app.home');
-
   }
 });
